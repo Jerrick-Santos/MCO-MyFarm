@@ -452,39 +452,42 @@ public class MyFarmGUI extends JFrame{
         Icon cancel = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
         Icon check =  new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-done-32.png")));
         if (val){
-            forRock = new JLabel(check);
-        }
-        else {
-            forRock = new JLabel(cancel);
-        }
-    }
-
-    public void setPlowIcon(boolean val){
-        if (val){
             forRock.setIcon(this.checkIcon);
         }
         else {
             forRock.setIcon(this.cancelIcon);
+        }
+
+    }
+
+    public void setPlowIcon(boolean val){
+        Icon cancel = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
+        Icon check =  new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-done-32.png")));
+        if (val){
+            forPlow.setIcon(this.checkIcon);
+        }
+        else {
+            forPlow.setIcon(this.cancelIcon);
         }
 
     }
 
     public void setSeedIcon(boolean val){
         if (val){
-            forRock.setIcon(this.checkIcon);
+            forSeed.setIcon(this.checkIcon);
         }
         else {
-            forRock.setIcon(this.cancelIcon);
+            forSeed.setIcon(this.cancelIcon);
         }
 
     }
 
     public void setWitherIcon(boolean val){
         if (val){
-            forRock.setIcon(this.checkIcon);
+            forWither.setIcon(this.checkIcon);
         }
         else {
-            forRock.setIcon(this.cancelIcon);
+            forWither.setIcon(this.cancelIcon);
         }
 
     }

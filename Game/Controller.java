@@ -44,6 +44,7 @@ public class Controller implements ActionListener {
                 player.restartGame();
                 updateView();
                 updateTileInfo(0,0);
+                mainGUI.changeToolButtonColor(0,player.getSelectedTool());
             }
             else if (select == 0){
                 player.endGameNow();
