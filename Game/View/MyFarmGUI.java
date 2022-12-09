@@ -22,8 +22,7 @@ public class MyFarmGUI extends JFrame{
     private JButton updateFT;
     // East Panel
     private JLabel lblText;
-    private JLabel cropMaturity, harvestDay, minimumWaterReq, maximumWaterReq, timesCropWatered, minimumFertilizerReq,
-            maximumFertilizerReq, timesCropFertilized;
+    private JLabel cropMaturity, harvestDay, minimumWaterReq, maximumWaterReq, timesCropWatered, minimumFertilizerReq, maximumFertilizerReq, timesCropFertilized;
     private int cropM = 0, harvestD = 0, minWR = 0, maximumWR = 0, timesCW = 0, minFR = 0, maximumFR = 0, timesCF = 0;
     private JButton btnUse, btnPlant, btnHarvest, btnNextDay;
     private JLabel plantLbl;
@@ -212,8 +211,8 @@ public class MyFarmGUI extends JFrame{
         JLabel cM = new JLabel("                          Crop Maturity (in days)");
                cM.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(cM);
-        cropMaturity.setFont(new Font("Arial", Font.BOLD, 14));
         cropMaturity = new JLabel("........................................" + cropM);
+        cropMaturity.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(cropMaturity);
         JLabel hD = new JLabel("                                            Harvest Day");
                hD.setFont(new Font("Arial", Font.BOLD, 14));
