@@ -1,4 +1,9 @@
 package Game.View;
+/**
+ * This is the GUI class (View) which handles all the panels that make up
+ * the visuals for the game. This class is responsible for enabling the user to
+ * interact through the different farm icons and buttons of the game.
+ */
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,9 +22,9 @@ public class MyFarmGUI extends JFrame{
     private JButton updateFT;
     // East Panel
     private JLabel lblText;
-    private JLabel cropMaturity, harvestDay, minimumWaterReq, timesCropWatered, minimumFertilizerReq,
-                   timesCropFertilized;
-    private int cropM = 0, harvestD = 0, minWR = 0, timesCW = 0, minFR = 0, timesCF = 0;
+    private JLabel cropMaturity, harvestDay, minimumWaterReq, maximumWaterReq, timesCropWatered, minimumFertilizerReq,
+            maximumFertilizerReq, timesCropFertilized;
+    private int cropM = 0, harvestD = 0, minWR = 0, maximumWR = 0, timesCW = 0, minFR = 0, maximumFR = 0, timesCF = 0;
     private JButton btnUse, btnPlant, btnHarvest, btnNextDay;
     private JLabel plantLbl;
     private JLabel forRock, forPlow, forSeed, forWither;
@@ -27,6 +32,11 @@ public class MyFarmGUI extends JFrame{
     private JButton[][] plantButtons;
     // South Panel
     private JButton[] toolButtons;
+
+    /**
+     * This constructor creates the GUI for the game itself. Creates the panels
+     * necessary for filling up the game window.
+     */
     public MyFarmGUI() {
         super("MP-MyFarm");
         setLayout(new BorderLayout());
@@ -55,6 +65,13 @@ public class MyFarmGUI extends JFrame{
 
     }
 
+    /**
+     * mainContainer holds all four panels under the 'Border' Layout.
+     * @param NORTHPanel - the north panel
+     * @param EASTPanel - the east panel
+     * @param CENTERPanel - the center panel
+     * @param SOUTHPanel - the south panel
+     */
     public void mainContainer(RoundedPanel NORTHPanel, JPanel EASTPanel, RoundedPanel CENTERPanel,
                               RoundedPanel SOUTHPanel) {
         Container mainContainer = this.getContentPane();
@@ -69,6 +86,11 @@ public class MyFarmGUI extends JFrame{
         mainContainer.add(SOUTHPanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * NORTHPanel holds the in-game personal stats and information of the player like
+     * the player's farmer status, level, wallet, and such.
+     * @return the north panel
+     */
     public RoundedPanel NORTHPanel() {
         RoundedPanel panelNorth = new RoundedPanel();
                      panelNorth.setLayout(new FlowLayout(5));
@@ -105,7 +127,7 @@ public class MyFarmGUI extends JFrame{
         daysPassed.setFont(new Font("Arial", Font.BOLD, 14));
         JLabel bracket5 = new JLabel("]");
                bracket5.setFont(new Font("Arial", Font.BOLD, 14));
-        JLabel spacee = new JLabel("                        ");
+        JLabel spacee = new JLabel("                                                                                       ");
         updateFT = new JButton("Prestige Up");
         updateFT.setBackground(Color.GREEN);
         updateFT.setForeground(Color.BLACK);
@@ -133,6 +155,15 @@ public class MyFarmGUI extends JFrame{
         return panelNorth;
     }
 
+    /**
+     * EASTPanel holds all the information pertaining to the player's plants statuses. This
+     * includes the player's chosen coordinates, tile status, plant label and status, and
+     * plant action buttons.
+     * @param panelEastNORTH - north panel of the EAST panel
+     * @param panelEastCENTER - center panel of the EAST panel
+     * @param panelEastSOUTH - south panel of the EAST panel
+     * @return the east panel
+     */
     public JPanel EASTPanel(RoundedPanel panelEastNORTH, JPanel panelEastCENTER, RoundedPanel panelEastSOUTH) {
         JPanel panelEast = new JPanel();
                panelEast.setLayout(new BorderLayout());
@@ -145,6 +176,10 @@ public class MyFarmGUI extends JFrame{
         return panelEast;
     }
 
+    /**
+     * panelEastNORTH holds the player's chosen coordinates.
+     * @return the north panel of the EAST panel
+     */
     public RoundedPanel panelEastNORTH() {
         RoundedPanel panelEastNORTH = new RoundedPanel();
                      panelEastNORTH.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -159,21 +194,26 @@ public class MyFarmGUI extends JFrame{
         return panelEastNORTH;
     }
 
+    /**
+     * panelEastCENTER holds the player's seeds' statuses.
+     * @param panelEastCenterSOUTH the south panel of the Center panel of the SOUTH panel
+     * @return the center panel of the EAST panel
+     */
     public JPanel panelEastCENTER(JPanel panelEastCenterSOUTH) {
         JPanel panelEastCENTER = new JPanel();
                panelEastCENTER.setLayout(new BorderLayout());
                panelEastCENTER.setBackground(Color.decode("#A9AF7E"));
 
         RoundedPanel status = new RoundedPanel();
-                     status.setLayout(new GridLayout(6, 2));
-                     status.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+                     status.setLayout(new GridLayout(8, 2));
+                     status.setBorder(BorderFactory.createEmptyBorder(10, 0, 15, 0));
                      status.setBackground(Color.decode("#E6E5A3"));
 
         JLabel cM = new JLabel("                          Crop Maturity (in days)");
                cM.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(cM);
-        cropMaturity = new JLabel("........................................" + cropM);
         cropMaturity.setFont(new Font("Arial", Font.BOLD, 14));
+        cropMaturity = new JLabel("........................................" + cropM);
         status.add(cropMaturity);
         JLabel hD = new JLabel("                                            Harvest Day");
                hD.setFont(new Font("Arial", Font.BOLD, 14));
@@ -187,6 +227,14 @@ public class MyFarmGUI extends JFrame{
         minimumWaterReq = new JLabel("........................................" + minWR);
         minimumWaterReq.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(minimumWaterReq);
+
+        JLabel maxWR = new JLabel("                              Maximum Water Req");
+        maxWR.setFont(new Font("Arial", Font.BOLD, 14));
+        status.add(maxWR);
+        maximumWaterReq = new JLabel("........................................" + maximumWR);
+        maximumWaterReq.setFont(new Font("Arial", Font.BOLD, 14));
+        status.add(maximumWaterReq);
+
         JLabel tCW = new JLabel("                             Times Crop Watered");
                tCW.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(tCW);
@@ -199,6 +247,14 @@ public class MyFarmGUI extends JFrame{
         minimumFertilizerReq = new JLabel("........................................" + minFR);
         minimumFertilizerReq.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(minimumFertilizerReq);
+
+        JLabel maxFR = new JLabel("                         Maximum Fertilizer Req");
+        maxFR.setFont(new Font("Arial", Font.BOLD, 14));
+        status.add(maxFR);
+        maximumFertilizerReq = new JLabel("........................................" + maximumFR);
+        maximumFertilizerReq.setFont(new Font("Arial", Font.BOLD, 14));
+        status.add(maximumFertilizerReq);
+
         JLabel tCF = new JLabel("                           Times Crop Fertilized");
                tCF.setFont(new Font("Arial", Font.BOLD, 14));
         status.add(tCF);
@@ -212,6 +268,10 @@ public class MyFarmGUI extends JFrame{
         return panelEastCENTER;
     }
 
+    /**
+     * panelEastSOUTH holds the buttons responsible for the player's action towards a tile.
+     * @return the south panel of the EAST panel
+     */
     public RoundedPanel panelEastSOUTH() {
         RoundedPanel panelEastSOUTH = new RoundedPanel();
                      panelEastSOUTH.setLayout(new FlowLayout());
@@ -242,6 +302,10 @@ public class MyFarmGUI extends JFrame{
         return panelEastSOUTH;
     }
 
+    /**
+     * panelEastCenterSOUTH holds the seed's label and statuses of a particular tile.
+     * @return the south panel of the EastCenter panel
+     */
     public JPanel panelEastCenterSOUTH() {
         JPanel panelEastCenterSOUTH = new JPanel();
                panelEastCenterSOUTH.setLayout(new BorderLayout());
@@ -284,17 +348,13 @@ public class MyFarmGUI extends JFrame{
                withered.setForeground(Color.black);
         textDesc.add(withered);
 
-        Icon RockIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        forRock = new JLabel(RockIcon);
+        forRock = new JLabel(this.cancelIcon);
         textDesc.add(forRock);
-        Icon PlowIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        forPlow = new JLabel(PlowIcon);
+        forPlow = new JLabel(this.cancelIcon);
         textDesc.add(forPlow);
-        Icon SeedIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        forSeed = new JLabel(SeedIcon);
+        forSeed = new JLabel(this.cancelIcon);
         textDesc.add(forSeed);
-        Icon WitherIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        forWither = new JLabel(WitherIcon);
+        forWither = new JLabel(this.cancelIcon);
         textDesc.add(forWither);
 
         panelEastCenterSOUTH.add(textDesc, BorderLayout.SOUTH);
@@ -302,6 +362,10 @@ public class MyFarmGUI extends JFrame{
         return panelEastCenterSOUTH;
     }
 
+    /**
+     * CENTERPanel serves as the 'motherboard' of the GUI. This panel contains all the tiles for the game.
+     * @return the center panel
+     */
     public RoundedPanel CENTERPanel() {
         RoundedPanel panelCenter = new RoundedPanel();
                      panelCenter.setLayout(new GridLayout(10,5));
@@ -326,6 +390,11 @@ public class MyFarmGUI extends JFrame{
         return panelCenter;
     }
 
+    /**
+     * SOUTHPanel holds the tools of the player. This includes the Watercan, Fertilizer, Plow tool, Pickaxe,
+     * and Shovel.
+     * @return the south panel
+     */
     public RoundedPanel SOUTHPanel() {
         RoundedPanel panelSouth = new RoundedPanel();
                      panelSouth.setLayout(new GridLayout(1,5));
@@ -349,31 +418,57 @@ public class MyFarmGUI extends JFrame{
     }
 
     //NORTH PANEL SETTERS
+
+    /**
+     * setFarmerTypeName sets the Farmer type of the player.
+     * @param farmerTypeName - the farmer type of the player
+     */
     public void setFarmerTypeName(String farmerTypeName){
         this.farmerTypeStat.setText(farmerTypeName);
     }
 
+    /**
+     * setFarmerLevel sets the value for player's level.
+     * @param level - level of the player
+     */
     public void setFarmerLevel(int level){
         String levelString = Integer.toString(level);
         this.levelVal.setText(levelString);
     }
 
+    /**
+     * setFarmerBalance sets the value for the player's wallet.
+     * @param balance - the balance of the wallet
+     */
     public void setFarmerBalance(double balance){
         String balanceString = Double.toString(balance);
         this.objcoinsVal.setText(balanceString);
     }
 
+    /**
+     * setFarmerExpVal sets the value for the players experience (ExP)
+     * @param exp - amount of experience earned
+     */
     public void setFarmerExpVal(double exp){
         String expString = Double.toString(exp);
         this.expVal.setText(expString);
     }
 
+    /**
+     * setDaysPassed sets the value for the days passed.
+     * @param days - amount of days passed
+     */
     public void setDaysPassed(int days){
         String daysPassedString = Integer.toString(days);
         this.daysPassed.setText(daysPassedString);
     }
 
     //ACTION LISTENER
+
+    /**
+     * setActionListener sets the action listener event to the button attributes in the class.
+     * @param listener - action listener
+     */
     public void setActionListener(ActionListener listener) {
         for (int i = 0; i < 5; i++) {
             toolButtons[i].addActionListener(listener);
@@ -394,63 +489,126 @@ public class MyFarmGUI extends JFrame{
 
 
     //PANEL EAST NORTH
+
+    /**
+     * setPlantCoordinate set the coordinate of the plant chosen
+     * @param coordinate - the tile coordinate of the chosen plant
+     */
     public void setPlantCoordinate(String coordinate){
         this.lblText.setText(coordinate);
     }
 
     //PANEL EAST CENTER
 
+    /**
+     * setCropM sets the crop maturity value.
+     * @param cropM - crop maturity value
+     */
     public void setCropM(int cropM) {
         this.cropM = cropM;
     }
 
+    /**
+     * setHarvestD sets the harvest day.
+     * @param harvestD - harvest day
+     */
     public void setHarvestD(int harvestD) {
         this.harvestD = harvestD;
     }
 
+    /**
+     * setMinWR sets the minimum water requirement.
+     * @param minWR - minimum water requirement
+     */
     public void setMinWR(int minWR) {
         this.minWR = minWR;
     }
 
+    /**
+     * setMaxWR sets the maximum water requirement.
+     * @param maximumWR - maximum water requirement
+     */
+    public void setMaxWR(int maximumWR) {
+        this.maximumWR = maximumWR;
+    }
+
+    /**
+     * setTimesCW sets the amount of times the crop was watered.
+     * @param timesCW - amount of the times the crop was watered
+     */
     public void setTimesCW(int timesCW) {
         this.timesCW = timesCW;
     }
 
+    /**
+     * setMinFR sets the minimum fertilizer requirement.
+     * @param minFR - minimum fertilizer requirement
+     */
     public void setMinFR(int minFR) {
         this.minFR = minFR;
     }
 
+    /**
+     * setMaxFR sets the maximum fertilizer requirement.
+     * @param maximumFR - maximum fertilizer requirement
+     */
+    public void setMaxFR(int maximumFR) {
+        this.maximumFR = maximumFR;
+    }
+
+    /**
+     * setTimesCF sets the amount of times the crop was fertilized.
+     * @param timesCF - amount of times the crop was fertilized
+     */
     public void setTimesCF(int timesCF) {
         this.timesCF = timesCF;
     }
 
+    /**
+     * removeAllTileInfo removes all tile information. The method changes all text into blank.
+     */
     public void removeAllTileInfo(){
         cropMaturity.setText("");
         harvestDay.setText("");
         minimumWaterReq.setText("");
+        maximumWaterReq.setText("");
         timesCropWatered.setText("");
         minimumFertilizerReq.setText("");
+        maximumFertilizerReq.setText("");
         timesCropFertilized.setText("");
     }
 
+    /**
+     * revertTileInfo reverts all information of the chosen tile coordinate.
+     */
     public void revertTileInfo(){
         cropMaturity.setText("........................................" + cropM);
         harvestDay.setText("........................................" + harvestD);
         minimumWaterReq.setText("........................................" + minWR);
+        maximumWaterReq.setText("........................................" + maximumWR);
         timesCropWatered.setText("........................................" + timesCW);
         minimumFertilizerReq.setText("........................................" + minFR);
+        maximumFertilizerReq.setText("........................................" + maximumFR);
         timesCropFertilized.setText("........................................" + timesCF);
     }
 
     //EAST SOUTH
+
+    /**
+     * setPlantLabel sets the name of the plant.
+     * @param plantLabel - name of the plant
+     */
     public void setPlantLabel(String plantLabel){
         this.plantLbl.setText(plantLabel);
     }
 
     //EAST CENTER SOUTH
+
+    /**
+     * setRockIcon sets the icon for the plant's rock occupying status.
+     * @param val -
+     */
     public void setRockIcon(boolean val){
-        Icon cancel = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        Icon check =  new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-done-32.png")));
         if (val){
             forRock.setIcon(this.checkIcon);
         }
@@ -461,8 +619,6 @@ public class MyFarmGUI extends JFrame{
     }
 
     public void setPlowIcon(boolean val){
-        Icon cancel = new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-cancel-32.png")));
-        Icon check =  new ImageIcon(Objects.requireNonNull(getClass().getResource("icons8-done-32.png")));
         if (val){
             forPlow.setIcon(this.checkIcon);
         }

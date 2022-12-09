@@ -101,10 +101,11 @@ public class Controller implements ActionListener {
         if (player.getLand(row,col).getPlantedSeed() != null){
             mainGUI.setCropM(player.getLand(row,col).getPlantedSeed().getDaysPassed());
             mainGUI.setHarvestD(player.getLand(row,col).getPlantedSeed().getHarvestDayRequired());
-            //TODO: Maximum WR
+            mainGUI.setMaxWR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMax());
             mainGUI.setMinWR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMin());
             mainGUI.setTimesCW(player.getLand(row,col).getPlantedSeed().getWater().getTimesCropWatered());
-            //TODO: MAXIMUM FR
+            mainGUI.setMaxFR(player.getLand(row,col).getPlantedSeed().getFertilizer().getFertilizerMax());
+            mainGUI.setMaxFR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMax());
             mainGUI.setMinFR(player.getLand(row,col).getPlantedSeed().getFertilizer().getFertilizerMin());
             mainGUI.setTimesCF(player.getLand(row,col).getPlantedSeed().getFertilizer().getTimesCropFertilized());
             mainGUI.revertTileInfo();
