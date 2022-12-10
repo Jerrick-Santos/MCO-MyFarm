@@ -1,15 +1,16 @@
-package Game.Model.Controller;
 /**
  * This is the Player class which handles all the game mechanics. It is also responsible for instantiating
  * the required classes to rune the game (e.g., Tile). The player class holds the necessary attributes to perform
  * game mechanics such as to plant, harvest, equip a tool, use a tool and proceed to next day.
  */
 
+package Game.Model.Controller;
+
+
 import Game.Model.FarmerTypes.*;
 import Game.Model.Tools.Tool;
 
 import java.io.File;
-import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,37 +59,46 @@ public class Player {
         mapRocksInitialization(rockMap);
     }
 
+    /**
+     * Uses FILE IO to map out the rock placements using indexing operations.
+     * The text file contains 2D indices (e.g., 0,0) which rocks wil be placed.
+     * @param rockMap the text file containing the 2D indexes
+     */
     public void mapRocksInitialization(File rockMap){
         int row, col;
-        String[] coordinates;
+        String[] coordinates; //contains the indices of row and col given the scanned input from the .txt file
         try {
             Scanner scanner = new Scanner(rockMap);
             while (scanner.hasNextLine()){
-                coordinates = scanner.nextLine().split("-",2);
-                row = Integer.parseInt(coordinates[0]);
-                col = Integer.parseInt(coordinates[1]);
-                this.land[row][col].setRock(true);
+                coordinates = scanner.nextLine().split("-",2); //converts String to integer and splits the indices
+                row = Integer.parseInt(coordinates[0]); //row
+                col = Integer.parseInt(coordinates[1]); //col
+                this.land[row][col].setRock(true); //sets the index to a rock placement
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e); //throws an exception if a file is not found.
         }
 
     }
 
+    /**
+     * Restarts the game and resets all game states and current progression of the user.
+     * Game attributes will be set to zero and any planted tiles will be reset to its initial form upon initialization
+     */
     public void restartGame(){
         this.level = 0;
         this.passedDays = 0;
         this.farmerTypeIndex = 0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 5; j++) {
-                land[i][j] = new Tile();
+                land[i][j] = new Tile(); //recreate a new tile
             }
         }
         this.gameStats = new GameStats();
         this.selectedTool = 0;
-        File rockMap = new File("~" + File.separator + "Desktop" + File.separator + "MCO" + File.separator + "Game" + File.separator + "Model" + File.separator + "Controller" + File.separator + "RockMapping.txt");
+        File rockMap = new File("\\Game\\Model\\Controller\\RockMapping.txt");
 
-        mapRocksInitialization(rockMap);
+        mapRocksInitialization(rockMap); //to reset rock placements
     }
 
     /**
@@ -134,7 +144,7 @@ public class Player {
                 }
             }
         }
-        this.passedDays++;
+        this.passedDays++; //increments the day has passed
         System.out.println("Passed Days: " + this.passedDays);
     }
 
@@ -151,6 +161,12 @@ public class Player {
         }
     }
 
+    /**
+     * Checks the surrounding tiles around a specific tile (checks edges, diagonals and sides)
+     * @param row index of the row
+     * @param col index of the column
+     * @return true if the surrounding tiles are not occupied, and false if at least one surrounding tile is occupied.
+     */
     public boolean checkOccupiedTilesAround(int row, int col){
         boolean retVal = false;
 
@@ -158,7 +174,7 @@ public class Player {
 
             if (!land[row - 1][col - 1].isOccupied() && !land[row - 1][col].isOccupied() && !land[row - 1][col + 1].isOccupied()
             && !land[row][col - 1].isOccupied() && !land[row][col + 1].isOccupied()
-            && !land[row + 1][col - 1].isOccupied() && !land[row + 1][col].isOccupied() && !land[row + 1][col + 1].isOccupied()){
+            && !land[row + 1][col - 1].isOccupied() && !land[row + 1][col].isOccupied() && !land[row + 1][col + 1].isOccupied()){ //checks if the surrounding tiles are occupied
                 retVal = true;
             }
             else {
@@ -177,12 +193,15 @@ public class Player {
      * A plant can only be planted with the correct usage of select, there is no presence of rock, the tile is
      * plowed, not occupied, there is no presence of planted plant (seed), and finally not occupied.
      * When these conditions are met then, the OBJCs wallet will be deducted automatically to the appropriate amount.
-     * @param select - User input given their seed of choice
+     * @param select user input given their seed of choice
+     * @param row row index
+     * @param col column index
+     * @return true if a seed can be planted on a tile, otherwise it is false
      */
     public boolean plant(int select, int row, int col){
         boolean retVal = false;
         if (this.land[row][col].isPlowed() && !this.land[row][col].isOccupied()
-        && this.land[row][col].getPlantedSeed() == null && !this.land[row][col].isRock())
+        && this.land[row][col].getPlantedSeed() == null && !this.land[row][col].isRock()) //checks condition if can be planted
         {
             if (select == 0 && this.gameStats.getBalance() >= 5 - farmerTypeList.get(farmerTypeIndex).getCostReduction()){
                 this.land[row][col].setPlantedSeed(select, "Turnip", "Root Crop", 2,
@@ -192,7 +211,7 @@ public class Player {
                         1,2,
                         6,5, this.farmerTypeList.get(farmerTypeIndex));
                 System.out.println("Note: Turnip planted!");
-                this.gameStats.deductWallet(this.land[row][col].getPlantedSeed().getSeedCost() - farmerTypeList.get(farmerTypeIndex).getCostReduction());
+                this.gameStats.deductWallet(this.land[row][col].getPlantedSeed().getSeedCost() - farmerTypeList.get(farmerTypeIndex).getCostReduction()); //deducts the OBJCs wallet when true
                 retVal = true;
             }
             else if (select == 1 && this.gameStats.getBalance() >= 10 - farmerTypeList.get(farmerTypeIndex).getCostReduction()){
@@ -286,6 +305,12 @@ public class Player {
         return retVal;
     }
 
+    /**
+     * Checks if a seed is eligible for harvest
+     * @param row row index
+     * @param col column index
+     * @return true if the seed is harvestable, otherwise false
+     */
     public boolean checkHarvestPlantEligiility(int row, int col){
         boolean retVal = false;
         if (this.land[row][col].getPlantedSeed() != null && this.land[row][col].isPlowed()
@@ -303,6 +328,9 @@ public class Player {
      * It also checks if the planted seed has reached its harvest day.
      * If these conditions are met, the tile is reverted to its original state and appropriate calculations
      * of the computed price will be added to the OBJCs wallet.
+     * @param row row index
+     * @param col column index
+     * @return true if the seed has been harvested, otherwise false
      */
     public boolean harvestPlant(int row, int col) {
         boolean retVal = false;
@@ -376,7 +404,7 @@ public class Player {
 
     /**
      * Checks the requirements (EXP) if the player can level up. Increments the level by 1 when conditions are met.
-     * @return true if the level has been updated
+     * @return true if the level has been updated, otherwise false
      */
     public boolean updateLevel() {
         boolean retVal = false;
@@ -435,13 +463,17 @@ public class Player {
         return retVal;
     }
 
+    /**
+     * Checks if the current player stats are eligible for a farmer upgrade
+     * @return true if the player is eligible for farmer upgrade, otherwise false
+     */
     public boolean checkFarmerTypeUpgradeEligibility() {
         boolean retVal = false;
-        if (this.level >= 5 && this.gameStats.getBalance() >= 200 && this.farmerTypeIndex == 0) {
+        if (this.level >= 5 && this.gameStats.getBalance() >= 200 && this.farmerTypeIndex == 0) { //checks if level 5 or greater
             retVal = true;
-        } else if (this.level >= 10 && this.gameStats.getBalance() >= 300 && this.farmerTypeIndex == 1) {
+        } else if (this.level >= 10 && this.gameStats.getBalance() >= 300 && this.farmerTypeIndex == 1) { //checks if level 10 or greater
             retVal = true;
-        } else if (this.level >= 15 && this.gameStats.getBalance() >= 400 && this.farmerTypeIndex == 2){
+        } else if (this.level >= 15 && this.gameStats.getBalance() >= 400 && this.farmerTypeIndex == 2){ //checks if level 15 or greater
             retVal = true;
         }
         return retVal;
@@ -449,7 +481,8 @@ public class Player {
 
     /**
      * Upgrades the farmer type parameters (bonuses and seed cost reduction)
-     * @param choice - 1 (yes) or 0 (no) to decide if user wished to upgrade the farmerType
+     * @param choice 1 (yes) or 0 (no) to decide if user wished to upgrade the farmerType
+     * @return true if the player is eligible for farmer upgrade, otherwise false
      */
     public boolean updateFarmerType(int choice) {
         boolean retVal = false;
@@ -493,10 +526,18 @@ public class Player {
 
     //GETTERS
 
+    /**
+     * Gets the FarmerType attribute
+     * @return a FarmerType
+     */
     public FarmerType getFarmerType() {
         return farmerTypeList.get(farmerTypeIndex);
     }
 
+    /**
+     * Gets the preceding FarmerType (next farmer type)
+     * @return a FarmerType
+     */
     public FarmerType getNextFarmerType() {
 
         int tempIndex = this.farmerTypeIndex;
@@ -510,22 +551,44 @@ public class Player {
         }
     }
 
+    /**
+     * Gets Game Stats attribute
+     * @return GameStats
+     */
     public GameStats getGameStats() {
         return gameStats;
     }
 
+    /**
+     * Gets a player level
+     * @return player level
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Gets Passed Days in the whole game
+     * @return passed days
+     */
     public int getPassedDays() {
         return passedDays;
     }
 
+    /**
+     * Gets a specific tile (land) using an index
+     * @param row row index
+     * @param col column index
+     * @return a tile
+     */
     public Tile getLand(int row, int col) {
         return land[row][col];
     }
 
+    /**
+     * Gets the selected tool (selectedTool)
+     * @return the index of the selected tool (selectedTool)
+     */
     public int getSelectedTool() {
         return selectedTool;
     }

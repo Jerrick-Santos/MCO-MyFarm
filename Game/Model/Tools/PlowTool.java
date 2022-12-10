@@ -8,8 +8,8 @@ import Game.Model.Controller.Tile;
 public class PlowTool extends Tool{
     /**
      * Constructs the Plow class.
-     * @param name - name of the tool
-     * @param cost - cost per use
+     * @param name name of the tool
+     * @param cost cost per use
      * @param expGain - exp gained when tool is used
      */
     public PlowTool(String name, int cost, double expGain) {
@@ -18,7 +18,7 @@ public class PlowTool extends Tool{
 
     /**
      * Turns the unplowed tile to a plowed tile
-     * @param tile - Takes tile as parameter
+     * @param tile Takes tile as parameter
      * @return true if the tool can be used, false if not
      */
     public boolean useTool(Tile tile) {

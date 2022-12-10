@@ -1,17 +1,19 @@
-package Game.Model.Tools;
-
-import Game.Model.Controller.Tile;
-
 /**
  * This class removes a seed (withered or not)
  */
 
+
+package Game.Model.Tools;
+
+import Game.Model.Controller.Tile;
+
+
 public class Shovel extends Tool{
     /**
      * Constructs the Shovel class.
-     * @param name - name of the tool
-     * @param cost - cost per use
-     * @param expGain - exp gained when tool is used
+     * @param name name of the tool
+     * @param cost cost per use
+     * @param expGain exp gained when tool is used
      */
     public Shovel(String name, int cost, double expGain) {
         super(name, cost, expGain);
@@ -19,7 +21,7 @@ public class Shovel extends Tool{
 
     /**
      * removes a seed (withered or not)
-     * @param tile - Takes tile as parameter
+     * @param tile Takes tile as parameter
      * @return true if the tool can be used, false if not
      */
     @Override
@@ -33,6 +35,9 @@ public class Shovel extends Tool{
                 tile.setPlowed(false);
                 tile.setOccupied(false);
                 System.out.println("Note: Plant has been removed");
+            }
+            else {
+                retVal = true;
             }
         return retVal;
     }

@@ -1,10 +1,11 @@
-package Game.Model.Controller;
-
 /**
  * The GameStats class contains the variables responsible for holding the wallet balance and
  * experience points of the player. A player may call methods from this class for increment or
  * decrement of their balances as well as call a method for gaining experience points.
  */
+package Game.Model.Controller;
+
+
 public class GameStats {
     public double balance;
     public double exp;

@@ -9,9 +9,9 @@ import Game.Model.Controller.Tile;
 public class WaterCan extends Tool{
     /**
      * Constructs the Watercan class.
-     * @param name - name of the tool
-     * @param cost - cost per use
-     * @param expGain - exp gained when tool is used
+     * @param name name of the tool
+     * @param cost cost per use
+     * @param expGain exp gained when tool is used
      */
     public WaterCan(String name, int cost, double expGain) {
         super(name, cost, expGain);
@@ -19,7 +19,7 @@ public class WaterCan extends Tool{
 
     /**
      * adds water to the seed
-     * @param tile - Takes tile as parameter
+     * @param tile Takes tile as parameter
      * @return true if the tool can be used, false if not
      */
     @Override
