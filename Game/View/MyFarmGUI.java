@@ -1,8 +1,3 @@
-/**
- * This is the GUI class (View) which handles all the panels that make up
- * the visuals for the game. This class is responsible for enabling the user to
- * interact through the different farm icons and buttons of the game.
- */
 package Game.View;
 
 import javax.swing.*;
@@ -10,6 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+/**
+ * This is the GUI class (View) which handles all the panels that make up
+ * the visuals for the game. This class is responsible for enabling the user to
+ * interact through the different farm icons and buttons of the game.
+ */
 public class MyFarmGUI extends JFrame{
 
     private Icon cancelIcon;

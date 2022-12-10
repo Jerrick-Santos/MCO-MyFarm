@@ -1,8 +1,7 @@
+package Game.Model.FarmerTypes;
 /**
  * Basic Farmer (Default) which inherits methods and attributes from FarmerType
  */
-package Game.Model.FarmerTypes;
-
 public class Farmer extends FarmerType{
 
     /**

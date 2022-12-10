@@ -5,7 +5,6 @@ import Game.Model.PlayerMechanics.Tile;
 /**
  * This class adds water to the seed
  */
-
 public class WaterCan extends Tool{
     /**
      * Constructs the Watercan class.

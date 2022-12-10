@@ -1,11 +1,11 @@
-/**
- * Template for a Rounded Panel template to be applied on the MYFarmGUI
- */
 package Game.View;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Template for a Rounded Panel template to be applied on the MYFarmGUI
+ */
 public class RoundPanel extends JPanel {
     private Dimension dimension = new Dimension(10, 10);
     private int strokeSize = 3;

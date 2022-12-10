@@ -1,11 +1,10 @@
-/**
- * This class removes a rock
- */
 package Game.Model.Tools;
 
 import Game.Model.PlayerMechanics.Tile;
 
-
+/**
+ * This class removes a rock
+ */
 public class Pickaxe extends Tool{
     /**
      * Constructs the Pickaxe class.

@@ -1,13 +1,13 @@
-/**
- * The Tile class contains information about a tile whether it has a rock, is plowed, is occupied, and has a seed.
- * The Tile class is also responsible for instantiating a seed based on the preferences of the user which will be
- * supplied by the Player class. A Tile can have 0 or 1 seed throughout the entire game.
- */
 package Game.Model.PlayerMechanics;
 
 import Game.Model.FarmerTypes.FarmerType;
 import Game.Model.Seeds.*;
 
+/**
+ * The Tile class contains information about a tile whether it has a rock, is plowed, is occupied, and has a seed.
+ * The Tile class is also responsible for instantiating a seed based on the preferences of the user which will be
+ * supplied by the Player class. A Tile can have 0 or 1 seed throughout the entire game.
+ */
 public class Tile {
     private boolean rock;
     private boolean occupied;

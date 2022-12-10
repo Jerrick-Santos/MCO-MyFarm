@@ -1,12 +1,11 @@
-/**
- * This class adds fertilizer to the seed
- */
 package Game.Model.Tools;
 
 import Game.Model.PlayerMechanics.Tile;
 
 
-
+/**
+ * This class adds fertilizer to the seed
+ */
 public class FertilizerTool extends Tool{
     /**
      * Constructs the Fertilizer class.

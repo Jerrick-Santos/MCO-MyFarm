@@ -1,8 +1,7 @@
+package Game.Model.FarmerTypes;
 /**
  * Distinguished Farmer which inherits methods and attributes from FarmerType
  */
-package Game.Model.FarmerTypes;
-
 public class DistinguishedFarmer extends FarmerType{
 
     /**

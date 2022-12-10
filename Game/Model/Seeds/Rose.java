@@ -1,11 +1,10 @@
-/**
- * Rose seed, a subclass of the Seed class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
+/**
+ * Rose seed, a subclass of the Seed class
+ */
 public class Rose extends Seed{
 
     /**

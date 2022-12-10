@@ -1,12 +1,11 @@
-/**
- * The Fertilizer Class contains the information needed for fertilizing a
- * particular crop, since fertilizer requirements differ across different crops.
- */
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
-
+/**
+ * The Fertilizer Class contains the information needed for fertilizing a
+ * particular crop, since fertilizer requirements differ across different crops.
+ */
 public class Fertilizer {
     private int fertilizerMin;
     private int fertilizerMax;

@@ -1,6 +1,3 @@
-/**
- * Template for button alterations and to change the overall look of the buttons in MyFarmGUI
- */
 package Game.View;
 
 import javax.swing.*;
@@ -8,6 +5,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 
+/**
+ * Template for button alterations and to change the overall look of the buttons in MyFarmGUI
+ */
 public class CustomButton extends BasicButtonUI {
     /**
      * installUI configures the look and feel of the overall component

@@ -1,8 +1,7 @@
+package Game.Model.FarmerTypes;
 /**
  * Legendary Farmer which inherits methods and attributes from FarmerType
  */
-package Game.Model.FarmerTypes;
-
 public class LegendaryFarmer extends FarmerType{
 
     /**

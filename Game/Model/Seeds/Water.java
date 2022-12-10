@@ -1,12 +1,11 @@
-/**
- * The Water Class contains the information needed for watering a particular crop,
- * since water requirements differ across different crops.
- */
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
-
+/**
+ * The Water Class contains the information needed for watering a particular crop,
+ * since water requirements differ across different crops.
+ */
 public class Water {
     private int waterMin;
     private int waterMax;

@@ -1,11 +1,10 @@
-/**
- * Tulips seed, a subclass of the Seed class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
+/**
+ * Tulips seed, a subclass of the Seed class
+ */
 public class Tulips extends Seed{
 
     /**

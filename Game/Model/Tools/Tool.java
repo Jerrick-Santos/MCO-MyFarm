@@ -1,14 +1,12 @@
+package Game.Model.Tools;
+import Game.Model.PlayerMechanics.Tile;
+
+
 /**
  * This is the Tool class which is an abstract class. The purpose of this class is only to provide a template
  * or reusable code for its child classes such as the WaterCan, Fertilizer, Plow Tool, Pickaxe and Shovel.
  * This class also contains one abstract method which is how tools are individually used based on their different implementations.
  */
-
-package Game.Model.Tools;
-import Game.Model.PlayerMechanics.Tile;
-
-
-
 public abstract class Tool {
     private String name;
     private int cost;

@@ -1,7 +1,3 @@
-/**
- * The controller class is where the logic (model) and GUI (view) elements are used. The class also handles the
- * different event driven actions (i.e., when a button is clicked).
- */
 package Game;
 
 import Game.Model.PlayerMechanics.Player;
@@ -12,6 +8,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The controller class is where the logic (model) and GUI (view) elements are used. The class also handles the
+ * different event driven actions (i.e., when a button is clicked).
+ */
 public class Controller implements ActionListener {
     private Tool PlowTool;
     private Tool WaterCan;

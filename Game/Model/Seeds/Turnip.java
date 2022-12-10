@@ -1,13 +1,9 @@
-/**
- * Turnip seed, a subclass of the Seed class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
 /**
- * Inherits the Seed class
+ * Turnip seed, a subclass of the Seed class
  */
 public class Turnip extends Seed{
     /**

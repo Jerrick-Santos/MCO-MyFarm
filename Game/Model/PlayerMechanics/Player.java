@@ -1,9 +1,3 @@
-/**
- * This is the Player class which handles all the game mechanics. It is also responsible for instantiating
- * the required classes to rune the game (e.g., Tile). The player class holds the necessary attributes to perform
- * game mechanics such as to plant, harvest, equip a tool, use a tool and proceed to next day.
- */
-
 package Game.Model.PlayerMechanics;
 
 
@@ -16,6 +10,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * This is the Player class which handles all the game mechanics. It is also responsible for instantiating
+ * the required classes to rune the game (e.g., Tile). The player class holds the necessary attributes to perform
+ * game mechanics such as to plant, harvest, equip a tool, use a tool and proceed to next day.
+ */
 public class Player {
     private int level;
     private int passedDays;

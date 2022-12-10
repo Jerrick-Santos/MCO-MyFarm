@@ -1,11 +1,10 @@
-/**
- * Mango seed, a subclass of the Seed class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
+/**
+ * Mango seed, a subclass of the Seed class
+ */
 public class Mango extends Seed{
     /**
      * Constructor of Mango

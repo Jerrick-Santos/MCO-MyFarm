@@ -1,3 +1,5 @@
+package Game.Model.FarmerTypes;
+
 /**
  * The FarmerType is an abstract class contains the necessary information for the player's current
  * farmer type. As the player progresses through the game and levels up, the player
@@ -5,9 +7,6 @@
  * player benefits such as cost reduction for seeds, water and fertilizer maximum
  * requirement increase, and bonus earnings.
  */
-package Game.Model.FarmerTypes;
-
-
 public abstract class FarmerType {
     private String farmerTypeName;
     private int levelRequirement;

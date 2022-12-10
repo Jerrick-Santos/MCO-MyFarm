@@ -1,13 +1,9 @@
-/**
- * Apple seed, a subclass of the Carrot Class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
 /**
- * Inherits the Seed class
+ * Carrot seed, a subclass of the Carrot Class
  */
 public class Carrot extends Seed{
 

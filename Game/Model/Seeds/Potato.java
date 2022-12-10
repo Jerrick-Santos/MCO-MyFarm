@@ -1,13 +1,9 @@
-/**
- * Potato seed, a subclass of the Seed class
- */
-
 package Game.Model.Seeds;
 
 import Game.Model.FarmerTypes.FarmerType;
 
 /**
- * Inherits the Seed class
+ * Potato seed, a subclass of the Seed class
  */
 public class Potato extends Seed{
     /**

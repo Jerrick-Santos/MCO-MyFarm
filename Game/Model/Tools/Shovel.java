@@ -1,8 +1,3 @@
-/**
- * This class removes a seed (withered or not)
- */
-
-
 package Game.Model.Tools;
 
 import Game.Model.PlayerMechanics.Tile;
