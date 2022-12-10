@@ -32,7 +32,7 @@ public class CustomButton extends BasicButtonUI {
     @Override
     public void paint (Graphics graphics, JComponent component) {
         AbstractButton button = (AbstractButton) component;
-        paintBackground(graphics, button, button.getModel().isPressed() ? 2 : 0);
+        createBackground(graphics, button, button.getModel().isPressed() ? 2 : 0);
         super.paint(graphics, component);
     }
 
@@ -45,7 +45,7 @@ public class CustomButton extends BasicButtonUI {
      *                 and shared by multiple components
      * @param yValue y-value for Round Rectangle method
      */
-    private void paintBackground (Graphics graphics, JComponent component, int yValue) {
+    private void createBackground (Graphics graphics, JComponent component, int yValue) {
         Graphics2D renderGraphics = (Graphics2D) graphics;
         renderGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 

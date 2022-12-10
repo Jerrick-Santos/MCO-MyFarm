@@ -7,14 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RoundPanel extends JPanel {
-    protected Dimension arcs = new Dimension(10, 10);
-    protected int strokeSize = 1;
-    protected boolean shade = true;
-    protected Color shadowColor = Color.black;
-    protected boolean quality = true;
-    protected int shadowOffset = 4;
-    protected int shadowAlpha = 150;
-    protected int shadowGap = 5;
+    private Dimension dimension = new Dimension(10, 10);
+    private int strokeSize = 3;
+    private boolean shade = true;
+    private Color shadowColor = Color.DARK_GRAY;
+    private boolean quality = true;
+    private int shadowUnder = 9;
+    private int shadowOver = 150;
+    private int gap = 5;
 
     public RoundPanel() {
         super();
@@ -30,9 +30,9 @@ public class RoundPanel extends JPanel {
         super.paintComponent(g);
         int height = getHeight();
         int width = getWidth();
-        int shadowGap = this.shadowGap;
-        Color shadowColorA = new Color(shadowColor.getRed(),
-                shadowColor.getGreen(), shadowColor.getBlue(), shadowAlpha);
+        int shadowGap = this.gap;
+        Color shadowColorA = new Color(this.shadowColor.getRed(),
+                this.shadowColor.getGreen(), this.shadowColor.getBlue(), this.shadowOver);
         Graphics2D graphics = (Graphics2D) g;
 
         if (quality) {
@@ -43,24 +43,25 @@ public class RoundPanel extends JPanel {
         if (shade) {
             graphics.setColor(shadowColorA);
             graphics.fillRoundRect(
-                    shadowOffset,// x position
-                    shadowOffset,// y position
-                    width - strokeSize - shadowOffset,
-                    height - strokeSize - shadowOffset,
-                    arcs.width, arcs.height);
+                    this.shadowUnder,// x position
+                    this.shadowUnder,// y position
+                    width - this.strokeSize - this.shadowUnder,
+                    height - this.strokeSize - this.shadowUnder,
+                    this.dimension.width, this.dimension.height);
         } else {
             shadowGap = 1;
         }
 
-        graphics.setColor(getBackground());
-        graphics.fillRoundRect(0, 0, width - shadowGap,
-                height - shadowGap, arcs.width, arcs.height);
-        graphics.setColor(getForeground());
+
         graphics.setStroke(new BasicStroke(strokeSize));
         graphics.drawRoundRect(0, 0, width - shadowGap,
-                height - shadowGap, arcs.width, arcs.height);
+                height - shadowGap, this.dimension.width, this.dimension.height);
 
         graphics.setStroke(new BasicStroke());
+        graphics.setColor(getBackground());
+        graphics.fillRoundRect(0, 0, width - shadowGap,
+                height - shadowGap, this.dimension.width, this.dimension.height);
+        graphics.setColor(getForeground());
     }
 
 }
