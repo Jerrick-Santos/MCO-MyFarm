@@ -9,6 +9,7 @@ import Game.Model.FarmerTypes.*;
 import Game.Model.Tools.Tool;
 
 import java.io.File;
+import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,7 +86,7 @@ public class Player {
         }
         this.gameStats = new GameStats();
         this.selectedTool = 0;
-        File rockMap = new File("Game\\Model\\Controller\\RockMapping.txt");
+        File rockMap = new File("~" + File.separator + "Desktop" + File.separator + "MCO" + File.separator + "Game" + File.separator + "Model" + File.separator + "Controller" + File.separator + "RockMapping.txt");
 
         mapRocksInitialization(rockMap);
     }

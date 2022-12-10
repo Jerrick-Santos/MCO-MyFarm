@@ -1,9 +1,9 @@
-package Game.View;
 /**
  * This is the GUI class (View) which handles all the panels that make up
  * the visuals for the game. This class is responsible for enabling the user to
  * interact through the different farm icons and buttons of the game.
  */
+package Game.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,10 +66,10 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * mainContainer holds all four panels under the 'Border' Layout.
-     * @param NORTHPanel - the north panel
-     * @param EASTPanel - the east panel
-     * @param CENTERPanel - the center panel
-     * @param SOUTHPanel - the south panel
+     * @param NORTHPanel the north panel
+     * @param EASTPanel the east panel
+     * @param CENTERPanel the center panel
+     * @param SOUTHPanel the south panel
      */
     public void mainContainer(RoundedPanel NORTHPanel, JPanel EASTPanel, RoundedPanel CENTERPanel,
                               RoundedPanel SOUTHPanel) {
@@ -158,9 +158,9 @@ public class MyFarmGUI extends JFrame{
      * EASTPanel holds all the information pertaining to the player's plants statuses. This
      * includes the player's chosen coordinates, tile status, plant label and status, and
      * plant action buttons.
-     * @param panelEastNORTH - north panel of the EAST panel
-     * @param panelEastCENTER - center panel of the EAST panel
-     * @param panelEastSOUTH - south panel of the EAST panel
+     * @param panelEastNORTH north panel of the EAST panel
+     * @param panelEastCENTER center panel of the EAST panel
+     * @param panelEastSOUTH south panel of the EAST panel
      * @return the east panel
      */
     public JPanel EASTPanel(RoundedPanel panelEastNORTH, JPanel panelEastCENTER, RoundedPanel panelEastSOUTH) {
@@ -420,7 +420,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setFarmerTypeName sets the Farmer type of the player.
-     * @param farmerTypeName - the farmer type of the player
+     * @param farmerTypeName the farmer type of the player
      */
     public void setFarmerTypeName(String farmerTypeName){
         this.farmerTypeStat.setText(farmerTypeName);
@@ -428,7 +428,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setFarmerLevel sets the value for player's level.
-     * @param level - level of the player
+     * @param level level of the player
      */
     public void setFarmerLevel(int level){
         String levelString = Integer.toString(level);
@@ -437,7 +437,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setFarmerBalance sets the value for the player's wallet.
-     * @param balance - the balance of the wallet
+     * @param balance the balance of the wallet
      */
     public void setFarmerBalance(double balance){
         String balanceString = Double.toString(balance);
@@ -446,7 +446,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setFarmerExpVal sets the value for the players experience (ExP)
-     * @param exp - amount of experience earned
+     * @param exp amount of experience earned
      */
     public void setFarmerExpVal(double exp){
         String expString = Double.toString(exp);
@@ -455,7 +455,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setDaysPassed sets the value for the days passed.
-     * @param days - amount of days passed
+     * @param days amount of days passed
      */
     public void setDaysPassed(int days){
         String daysPassedString = Integer.toString(days);
@@ -466,7 +466,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setActionListener sets the action listener event to the button attributes in the class.
-     * @param listener - action listener
+     * @param listener action listener
      */
     public void setActionListener(ActionListener listener) {
         for (int i = 0; i < 5; i++) {
@@ -491,7 +491,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setPlantCoordinate set the coordinate of the plant chosen
-     * @param coordinate - the tile coordinate of the chosen plant
+     * @param coordinate the tile coordinate of the chosen plant
      */
     public void setPlantCoordinate(String coordinate){
         this.lblText.setText(coordinate);
@@ -501,7 +501,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setCropM sets the crop maturity value.
-     * @param cropM - crop maturity value
+     * @param cropM crop maturity value
      */
     public void setCropM(int cropM) {
         this.cropM = cropM;
@@ -509,7 +509,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setHarvestD sets the harvest day.
-     * @param harvestD - harvest day
+     * @param harvestD harvest day
      */
     public void setHarvestD(int harvestD) {
         this.harvestD = harvestD;
@@ -517,7 +517,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setMinWR sets the minimum water requirement.
-     * @param minWR - minimum water requirement
+     * @param minWR minimum water requirement
      */
     public void setMinWR(int minWR) {
         this.minWR = minWR;
@@ -525,7 +525,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setMaxWR sets the maximum water requirement.
-     * @param maximumWR - maximum water requirement
+     * @param maximumWR maximum water requirement
      */
     public void setMaxWR(int maximumWR) {
         this.maximumWR = maximumWR;
@@ -533,7 +533,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setTimesCW sets the amount of times the crop was watered.
-     * @param timesCW - amount of the times the crop was watered
+     * @param timesCW amount of the times the crop was watered
      */
     public void setTimesCW(int timesCW) {
         this.timesCW = timesCW;
@@ -541,7 +541,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setMinFR sets the minimum fertilizer requirement.
-     * @param minFR - minimum fertilizer requirement
+     * @param minFR minimum fertilizer requirement
      */
     public void setMinFR(int minFR) {
         this.minFR = minFR;
@@ -549,7 +549,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setMaxFR sets the maximum fertilizer requirement.
-     * @param maximumFR - maximum fertilizer requirement
+     * @param maximumFR maximum fertilizer requirement
      */
     public void setMaxFR(int maximumFR) {
         this.maximumFR = maximumFR;
@@ -557,7 +557,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setTimesCF sets the amount of times the crop was fertilized.
-     * @param timesCF - amount of times the crop was fertilized
+     * @param timesCF amount of times the crop was fertilized
      */
     public void setTimesCF(int timesCF) {
         this.timesCF = timesCF;
@@ -595,7 +595,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setPlantLabel sets the name of the plant.
-     * @param plantLabel - name of the plant
+     * @param plantLabel name of the plant
      */
     public void setPlantLabel(String plantLabel){
         this.plantLbl.setText(plantLabel);
@@ -605,7 +605,7 @@ public class MyFarmGUI extends JFrame{
 
     /**
      * setRockIcon sets the icon for the plant's rock occupying status.
-     * @param val -
+     * @param val boolean value for rock status
      */
     public void setRockIcon(boolean val){
         if (val){
@@ -617,6 +617,10 @@ public class MyFarmGUI extends JFrame{
 
     }
 
+    /**
+     * setPlowIcon sets the icon for the plant's plowed status.
+     * @param val boolean value for plowed status
+     */
     public void setPlowIcon(boolean val){
         if (val){
             forPlow.setIcon(this.checkIcon);
@@ -627,6 +631,10 @@ public class MyFarmGUI extends JFrame{
 
     }
 
+    /**
+     * setSeedIcon sets the icon for the plant's seeded status.
+     * @param val boolean value for seeded status
+     */
     public void setSeedIcon(boolean val){
         if (val){
             forSeed.setIcon(this.checkIcon);
@@ -637,6 +645,10 @@ public class MyFarmGUI extends JFrame{
 
     }
 
+    /**
+     * setWitherIcon sets the icon for the plant's withered status.
+     * @param val boolean value for withered status
+     */
     public void setWitherIcon(boolean val){
         if (val){
             forWither.setIcon(this.checkIcon);
@@ -649,45 +661,85 @@ public class MyFarmGUI extends JFrame{
 
     //EAST SOUTH
 
+    /**
+     * setPlantButtonColor sets the background color for the plant button.
+     */
     public void setPlantButtonColor(){
         btnPlant.setBackground(Color.decode("#EBE29F"));
     }
 
+    /**
+     * setHarvestButtonColor sets the background color for the harvest button.
+     */
     public void setHarvestButtonColor(){
         btnHarvest.setBackground(Color.decode("#EBE29F"));
     }
 
     //CENTER PANEL
+
+    /**
+     * readyForHarvest is used for when a plant is ready for harvest. Takes in a row and a column then sets
+     * the background color, foreground color, and icon, for that button.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void readyForHarvest(int row, int col){
         plantButtons[row][col].setBackground(Color.green);
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
         plantButtons[row][col].setIcon(this.plantIcon);
     }
 
+    /**
+     * plowedTile is used for when a plant is plowed. Takes in a row and a column then sets the background
+     * color, foreground color, and icon, for that button.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void plowedTile(int row, int col){
         plantButtons[row][col].setBackground(Color.cyan);
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
         plantButtons[row][col].setIcon(this.plowedIcon);
     }
 
+    /**
+     * revertOriginalTileColor is used to revert the tile to the original/initial color, including the icon.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void revertOriginalTileColor(int row, int col){
         plantButtons[row][col].setBackground(Color.decode("#E6E5A3"));
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
         plantButtons[row][col].setIcon(this.grassIcon);
     }
 
+    /**
+     * rockOccupied sets rock to occupy the designated tile.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void rockOccupied(int row, int col){
         Icon rockyIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("rock1.png")));
         plantButtons[row][col].setBackground(Color.orange);
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
         plantButtons[row][col].setIcon(this.rockIcon);
     }
+
+    /**
+     * tileIsOccupied sets tile as occupied.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void tileIsOccupied(int row, int col){
         plantButtons[row][col].setBackground(Color.yellow);
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
         plantButtons[row][col].setIcon(this.seedIcon);
     }
 
+    /**
+     * plantWithered sets tile as withered.
+     * @param row row coordinate
+     * @param col column coordinate
+     */
     public void plantWithered(int row, int col){
         plantButtons[row][col].setBackground(Color.red);
         plantButtons[row][col].setForeground(plantButtons[row][col].getBackground());
@@ -695,6 +747,13 @@ public class MyFarmGUI extends JFrame{
     }
 
     //SOUTH PANEL
+
+    /**
+     * changeToolButtonColor changes the color of the current tool if the selected tool is different from
+     * the current tool.
+     * @param select selected tool
+     * @param currentTool currently used tool
+     */
     public void changeToolButtonColor(int select, int currentTool){
         if (select != currentTool){
             toolButtons[currentTool].setBackground(Color.decode("#E6E5A3"));
@@ -707,6 +766,10 @@ public class MyFarmGUI extends JFrame{
 
     //JOPTION PANES
 
+    /**
+     * displaySeedOptions displays all the plants as options for the player to choose from.
+     * @return the chosen seed
+     */
     public int displaySeedOptions(){
         int retVal = -1;
         //i solved my problem adding the following 2 lines of code...
@@ -728,16 +791,30 @@ public class MyFarmGUI extends JFrame{
         return retVal;
     }
 
+    /**
+     * displayFarmerUpgradeEligibility displays text telling the player that he/she is eligible to upgrade his/her
+     * farmer type.
+     */
     public void displayFarmerUpgradeEligibility(){
         JOptionPane.showMessageDialog(this, "You are now eligible to upgrade your farmer type!"
         , "Farmer Update", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * displayLevelUp displays text telling the player he/she has leveled up.
+     * @param level player level
+     */
     public void displayLevelUp(int level){
         JOptionPane.showMessageDialog(this, "Level Up! You are now at Level " + level
                 , "Farmer Update", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * displayFarmerTypeUpgradeOptions asks the player if he/she wants to upgrade his/her farmer type.
+     * @param farmerTypeName player's current farmer type
+     * @param fee cost of the upgrade
+     * @return the index option of the array, 'options'. Either 'No' or 'Yes'.
+     */
     public int displayFarmerTypeUpgradeOptions(String farmerTypeName, double fee){
         String[] options = {"No", "Yes"};
 
@@ -750,6 +827,10 @@ public class MyFarmGUI extends JFrame{
         return retVal;
     }
 
+    /**
+     * displayEndGameOption asks the player if he/she wants to start over the game, after finishing the game.
+     * @return the index option of the array, 'options'. Either 'No' or 'Yes'.
+     */
     public int displayEndGameOption(){
         String[] options = {"No", "Yes"};
 
@@ -762,26 +843,42 @@ public class MyFarmGUI extends JFrame{
         return retVal;
     }
 
+    /**
+     * displayFarmerError displays an error prompt telling the player that he/she cannot upgrade.
+     */
     public void displayFarmerError(){
         JOptionPane.showMessageDialog(this, "Warning! You cant upgrade. Check conditions"
                 , "Farmer Upgrade Error", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * displayPlantError displays an error prompt telling the player that he/she cannot plant the chosen seed.
+     * Whether if the player has sufficient funds or the tile is occupied/withered.
+     */
     public void displayPlantError(){
         JOptionPane.showMessageDialog(this, "Warning: cannot be planted! Check OBJCs wallet if sufficient or if tile is occupied/withered (or if Fruit Tree is attempted check surrounding tiles."
                 , "Plant Error", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * displayHarvestError displays an error prompt telling the player that he/she cannot harvest the seed.
+     */
     public void displayHarvestError(){
         JOptionPane.showMessageDialog(this, "Warning: Cannot harvest Seed. Check if seed exists or had wither"
                 , "Harvest Error", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * displayToolError displays an error prompt telling the player that he/she cannot use the equipped tool.
+     */
     public void displayToolError(){
         JOptionPane.showMessageDialog(this, "Cannot use tool: Check tile conditions and cost usage of tool"
                 , "Invalid Tool Usage", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * terminateGUI terminates the GUI
+     */
     public void terminateGUI(){
         System.exit(0);
     }
