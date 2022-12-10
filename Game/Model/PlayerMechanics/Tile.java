@@ -3,7 +3,7 @@
  * The Tile class is also responsible for instantiating a seed based on the preferences of the user which will be
  * supplied by the Player class. A Tile can have 0 or 1 seed throughout the entire game.
  */
-package Game.Model.Controller;
+package Game.Model.PlayerMechanics;
 
 import Game.Model.FarmerTypes.FarmerType;
 import Game.Model.Seeds.*;

@@ -3,7 +3,7 @@
  * experience points of the player. A player may call methods from this class for increment or
  * decrement of their balances as well as call a method for gaining experience points.
  */
-package Game.Model.Controller;
+package Game.Model.PlayerMechanics;
 
 
 public class GameStats {

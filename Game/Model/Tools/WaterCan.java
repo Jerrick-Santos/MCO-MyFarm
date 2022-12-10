@@ -1,6 +1,6 @@
 package Game.Model.Tools;
 
-import Game.Model.Controller.Tile;
+import Game.Model.PlayerMechanics.Tile;
 
 /**
  * This class adds water to the seed

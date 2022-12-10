@@ -71,8 +71,8 @@ public class MyFarmGUI extends JFrame{
      * @param CENTERPanel the center panel
      * @param SOUTHPanel the south panel
      */
-    public void mainContainer(RoundedPanel NORTHPanel, JPanel EASTPanel, RoundedPanel CENTERPanel,
-                              RoundedPanel SOUTHPanel) {
+    public void mainContainer(RoundPanel NORTHPanel, JPanel EASTPanel, RoundPanel CENTERPanel,
+                              RoundPanel SOUTHPanel) {
         Container mainContainer = this.getContentPane();
                   mainContainer.setLayout(new BorderLayout(8,6));
         this.getRootPane().setBorder(BorderFactory.createMatteBorder(10,10,10,10,
@@ -90,8 +90,8 @@ public class MyFarmGUI extends JFrame{
      * the player's farmer status, level, wallet, and such.
      * @return the north panel
      */
-    public RoundedPanel NORTHPanel() {
-        RoundedPanel panelNorth = new RoundedPanel();
+    public RoundPanel NORTHPanel() {
+        RoundPanel panelNorth = new RoundPanel();
                      panelNorth.setLayout(new FlowLayout(5));
                      panelNorth.setBackground(Color.decode("#E6E5A3"));
                      panelNorth.setBorder(BorderFactory.createEmptyBorder(3,3,3,3));
@@ -131,7 +131,7 @@ public class MyFarmGUI extends JFrame{
         updateFT.setBackground(Color.GREEN);
         updateFT.setForeground(Color.BLACK);
         updateFT.setFont(new Font("Arial", Font.BOLD, 14));
-        updateFT.setUI(new StyledButtonUI());
+        updateFT.setUI(new CustomButton());
 
         panelNorth.add(bracket1);
         panelNorth.add(farmerTypeStat);
@@ -163,7 +163,7 @@ public class MyFarmGUI extends JFrame{
      * @param panelEastSOUTH south panel of the EAST panel
      * @return the east panel
      */
-    public JPanel EASTPanel(RoundedPanel panelEastNORTH, JPanel panelEastCENTER, RoundedPanel panelEastSOUTH) {
+    public JPanel EASTPanel(RoundPanel panelEastNORTH, JPanel panelEastCENTER, RoundPanel panelEastSOUTH) {
         JPanel panelEast = new JPanel();
                panelEast.setLayout(new BorderLayout());
                panelEast.setBackground(Color.decode("#A9AF7E"));
@@ -179,8 +179,8 @@ public class MyFarmGUI extends JFrame{
      * panelEastNORTH holds the player's chosen coordinates.
      * @return the north panel of the EAST panel
      */
-    public RoundedPanel panelEastNORTH() {
-        RoundedPanel panelEastNORTH = new RoundedPanel();
+    public RoundPanel panelEastNORTH() {
+        RoundPanel panelEastNORTH = new RoundPanel();
                      panelEastNORTH.setLayout(new FlowLayout(FlowLayout.CENTER));
                      panelEastNORTH.setBorder(BorderFactory.createEmptyBorder(3,3,3,3));
                      panelEastNORTH.setBackground(Color.decode("#E6E5A3"));
@@ -203,7 +203,7 @@ public class MyFarmGUI extends JFrame{
                panelEastCENTER.setLayout(new BorderLayout());
                panelEastCENTER.setBackground(Color.decode("#A9AF7E"));
 
-        RoundedPanel status = new RoundedPanel();
+        RoundPanel status = new RoundPanel();
                      status.setLayout(new GridLayout(8, 2));
                      status.setBorder(BorderFactory.createEmptyBorder(10, 0, 15, 0));
                      status.setBackground(Color.decode("#E6E5A3"));
@@ -271,8 +271,8 @@ public class MyFarmGUI extends JFrame{
      * panelEastSOUTH holds the buttons responsible for the player's action towards a tile.
      * @return the south panel of the EAST panel
      */
-    public RoundedPanel panelEastSOUTH() {
-        RoundedPanel panelEastSOUTH = new RoundedPanel();
+    public RoundPanel panelEastSOUTH() {
+        RoundPanel panelEastSOUTH = new RoundPanel();
                      panelEastSOUTH.setLayout(new FlowLayout());
                      panelEastSOUTH.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
                      panelEastSOUTH.setBackground(Color.decode("#E6E5A3"));
@@ -280,22 +280,22 @@ public class MyFarmGUI extends JFrame{
         btnUse = new JButton("Use Tool");
         btnUse.setFont(new Font("Arial", Font.BOLD, 14));
         btnUse.setForeground(Color.black);
-        btnUse.setUI(new StyledButtonUI());
+        btnUse.setUI(new CustomButton());
         panelEastSOUTH.add(btnUse);
         btnPlant = new JButton("Plant");
         btnPlant.setFont(new Font("Arial", Font.BOLD, 14));
         btnPlant.setForeground(Color.black);
-        btnPlant.setUI(new StyledButtonUI());
+        btnPlant.setUI(new CustomButton());
         panelEastSOUTH.add(btnPlant);
         btnHarvest = new JButton("Harvest");
         btnHarvest.setFont(new Font("Arial", Font.BOLD, 14));
         btnHarvest.setForeground(Color.black);
-        btnHarvest.setUI(new StyledButtonUI());
+        btnHarvest.setUI(new CustomButton());
         panelEastSOUTH.add(btnHarvest);
         btnNextDay = new JButton("Next Day");
         btnNextDay.setFont(new Font("Arial", Font.BOLD, 14));
         btnNextDay.setForeground(Color.black);
-        btnNextDay.setUI(new StyledButtonUI());
+        btnNextDay.setUI(new CustomButton());
         panelEastSOUTH.add(btnNextDay);
 
         return panelEastSOUTH;
@@ -310,7 +310,7 @@ public class MyFarmGUI extends JFrame{
                panelEastCenterSOUTH.setLayout(new BorderLayout());
                panelEastCenterSOUTH.setBackground(Color.decode("#A9AF7E"));
 
-        RoundedPanel textTitle = new RoundedPanel();
+        RoundPanel textTitle = new RoundPanel();
                      textTitle.setBackground(Color.decode("#E6E5A3"));
                      textTitle.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                      textTitle.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -321,7 +321,7 @@ public class MyFarmGUI extends JFrame{
         textTitle.add(plantLbl);
         panelEastCenterSOUTH.add(textTitle, BorderLayout.NORTH);
 
-        RoundedPanel textDesc = new RoundedPanel();
+        RoundPanel textDesc = new RoundPanel();
                      textDesc.setBackground(Color.decode("#E6E5A3"));
                      textDesc.setBorder(BorderFactory.createEmptyBorder(8, 3, 8, 3));
                      textDesc.setLayout(new GridLayout(2, 4));
@@ -365,8 +365,8 @@ public class MyFarmGUI extends JFrame{
      * CENTERPanel serves as the 'motherboard' of the GUI. This panel contains all the tiles for the game.
      * @return the center panel
      */
-    public RoundedPanel CENTERPanel() {
-        RoundedPanel panelCenter = new RoundedPanel();
+    public RoundPanel CENTERPanel() {
+        RoundPanel panelCenter = new RoundPanel();
                      panelCenter.setLayout(new GridLayout(10,5));
                      panelCenter.setBackground(Color.decode("#E6E5A3"));
                      panelCenter.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
@@ -394,8 +394,8 @@ public class MyFarmGUI extends JFrame{
      * and Shovel.
      * @return the south panel
      */
-    public RoundedPanel SOUTHPanel() {
-        RoundedPanel panelSouth = new RoundedPanel();
+    public RoundPanel SOUTHPanel() {
+        RoundPanel panelSouth = new RoundPanel();
                      panelSouth.setLayout(new GridLayout(1,5));
                      panelSouth.setBackground(Color.decode("#E6E5A3"));
                      panelSouth.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));

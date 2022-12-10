@@ -4,15 +4,13 @@
  */
 package Game;
 
-import Game.Model.Controller.Player;
-import Game.Model.Controller.Tile;
+import Game.Model.PlayerMechanics.Player;
 import Game.Model.Tools.*;
 import Game.View.MyFarmGUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.ExecutionException;
 
 public class Controller implements ActionListener {
     private Tool PlowTool;
@@ -26,7 +24,7 @@ public class Controller implements ActionListener {
     private int col;
 
     /**
-     * Controller constructor
+     * PlayerMechanics constructor
      */
     public Controller() {
         PlowTool = new PlowTool("PlowTool", 0, 0.5);
@@ -91,7 +89,7 @@ public class Controller implements ActionListener {
                 && player.getLand(i,j).isPlowed() && player.getLand(i,j).getPlantedSeed() != null && player.getLand(i,j).getPlantedSeed().isWithered()){ //if a plant has withered
                     mainGUI.plantWithered(i,j);
                 }
-                else if (player.checkHarvestPlantEligiility(i,j)){ //if a plant is ready for harvest
+                else if (player.checkHarvestPlantEligibility(i,j)){ //if a plant is ready for harvest
                     mainGUI.readyForHarvest(i,j);
                 }
                 else if (!player.getLand(i,j).isRock() && player.getLand(i,j).isOccupied()){ //if occupied with a plant

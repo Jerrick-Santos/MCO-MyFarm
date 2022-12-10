@@ -5,7 +5,7 @@
 
 package Game.Model.Tools;
 
-import Game.Model.Controller.Tile;
+import Game.Model.PlayerMechanics.Tile;
 
 
 public class Shovel extends Tool{

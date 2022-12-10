@@ -4,7 +4,7 @@
  * game mechanics such as to plant, harvest, equip a tool, use a tool and proceed to next day.
  */
 
-package Game.Model.Controller;
+package Game.Model.PlayerMechanics;
 
 
 import Game.Model.FarmerTypes.*;
@@ -54,7 +54,7 @@ public class Player {
         this.toolSetList = new ArrayList<>(Arrays.asList(tool1, tool2, tool3, tool4, tool5)); //takes input from pre-constructed tool variables in main
         this.selectedTool = 0;
 
-        File rockMap = new File("Game\\Model\\Controller\\RockMapping.txt");
+        File rockMap = new File("Game\\Model\\PlayerMechanics\\RockMapping.txt");
 
         mapRocksInitialization(rockMap);
     }
@@ -96,7 +96,7 @@ public class Player {
         }
         this.gameStats = new GameStats();
         this.selectedTool = 0;
-        File rockMap = new File("\\Game\\Model\\Controller\\RockMapping.txt");
+        File rockMap = new File("\\Game\\Model\\PlayerMechanics\\RockMapping.txt");
 
         mapRocksInitialization(rockMap); //to reset rock placements
     }
@@ -170,7 +170,7 @@ public class Player {
     public boolean checkOccupiedTilesAround(int row, int col){
         boolean retVal = false;
 
-        if ((row != 0 && row != 9) && (col != 0 && col != 4)){ //Checks if the coordinaters are planted in the edges
+        if ((row != 0 && row != 9) && (col != 0 && col != 4)){ //Checks if the coordinates are planted in the edges
 
             if (!land[row - 1][col - 1].isOccupied() && !land[row - 1][col].isOccupied() && !land[row - 1][col + 1].isOccupied()
             && !land[row][col - 1].isOccupied() && !land[row][col + 1].isOccupied()
@@ -201,7 +201,7 @@ public class Player {
     public boolean plant(int select, int row, int col){
         boolean retVal = false;
         if (this.land[row][col].isPlowed() && !this.land[row][col].isOccupied()
-        && this.land[row][col].getPlantedSeed() == null && !this.land[row][col].isRock()) //checks condition if can be planted
+        && this.land[row][col].getPlantedSeed() == null && !this.land[row][col].isRock()) //checks condition if seed can be planted
         {
             if (select == 0 && this.gameStats.getBalance() >= 5 - farmerTypeList.get(farmerTypeIndex).getCostReduction()){
                 this.land[row][col].setPlantedSeed(select, "Turnip", "Root Crop", 2,
@@ -311,7 +311,7 @@ public class Player {
      * @param col column index
      * @return true if the seed is harvestable, otherwise false
      */
-    public boolean checkHarvestPlantEligiility(int row, int col){
+    public boolean checkHarvestPlantEligibility(int row, int col){
         boolean retVal = false;
         if (this.land[row][col].getPlantedSeed() != null && this.land[row][col].isPlowed()
                 && !this.land[row][col].getPlantedSeed().isWithered()
