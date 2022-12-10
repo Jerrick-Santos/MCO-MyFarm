@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RoundPanel extends JPanel {
-
     protected Dimension arcs = new Dimension(10, 10);
     protected int strokeSize = 1;
     protected boolean shade = true;
@@ -16,7 +15,6 @@ public class RoundPanel extends JPanel {
     protected int shadowOffset = 4;
     protected int shadowAlpha = 150;
     protected int shadowGap = 5;
-
 
     public RoundPanel() {
         super();
