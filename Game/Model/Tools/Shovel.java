@@ -2,7 +2,9 @@ package Game.Model.Tools;
 
 import Game.Model.PlayerMechanics.Tile;
 
-
+/**
+ * This class shovels a tile
+ */
 public class Shovel extends Tool{
     /**
      * Constructs the Shovel class.
