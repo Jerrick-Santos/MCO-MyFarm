@@ -1,16 +1,17 @@
+/**
+ * This class removes a rock
+ */
 package Game.Model.Tools;
 
 import Game.Model.Controller.Tile;
 
-/**
- * This class removes a rock
- */
+
 public class Pickaxe extends Tool{
     /**
      * Constructs the Pickaxe class.
-     * @param name - name of the tool
-     * @param cost - cost per use
-     * @param expGain - exp gained when tool is used
+     * @param name name of the tool
+     * @param cost cost per use
+     * @param expGain exp gained when tool is used
      */
     public Pickaxe(String name, int cost, double expGain) {
         super(name, cost, expGain);
@@ -18,7 +19,7 @@ public class Pickaxe extends Tool{
 
     /**
      * removes a rock
-     * @param tile - the object taken input is a tile which will be used in the child classes
+     * @param tile the object taken input is a tile which will be used in the child classes
      * @return true if the tool can be used, false if not
      */
     @Override

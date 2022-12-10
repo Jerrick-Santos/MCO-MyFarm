@@ -1,12 +1,13 @@
-package Game.Model.FarmerTypes;
-
 /**
- * The FarmerType class contains the necessary information for the player's current
+ * The FarmerType is an abstract class contains the necessary information for the player's current
  * farmer type. As the player progresses through the game and levels up, the player
  * is subject for 'prestige leveling' wherein upgrading the farmer type may grant the
  * player benefits such as cost reduction for seeds, water and fertilizer maximum
  * requirement increase, and bonus earnings.
  */
+package Game.Model.FarmerTypes;
+
+
 public abstract class FarmerType {
     private String farmerTypeName;
     private int levelRequirement;
@@ -16,6 +17,16 @@ public abstract class FarmerType {
     private int fertilizerIncrease;
     private double fee;
 
+    /**
+     * Constructor to the Farmer Type abstract class.
+     * @param farmerTypeName name of farmer type
+     * @param levelRequirement level requirement
+     * @param bonusEarns earned bonus
+     * @param costReduction cost of usage reduction
+     * @param waterIncrease water increase
+     * @param fertilizerIncrease fertilizer increase
+     * @param fee fee needed to upgrade to the farmer type
+     */
     public FarmerType(String farmerTypeName, int levelRequirement, int bonusEarns,
                       int costReduction, int waterIncrease,
                       int fertilizerIncrease, double fee) {
@@ -30,7 +41,7 @@ public abstract class FarmerType {
 
 
     /**
-     * Getter class for variable, farmerTypeName.
+     * Getter for variable, farmerTypeName.
      * @return name of current farmer type.
      */
     public String getFarmerTypeName() {
@@ -39,7 +50,7 @@ public abstract class FarmerType {
 
 
     /**
-     * Getter class for variable, levelRequirement.
+     * Getter for variable, levelRequirement.
      * @return level requirement
      */
     public int getLevelRequirement() {
@@ -47,7 +58,7 @@ public abstract class FarmerType {
     }
 
     /**
-     * Getter class for variable, bonusEarns.
+     * Getter for variable, bonusEarns.
      * @return bonus earnings
      */
     public int getBonusEarns() {
@@ -55,7 +66,7 @@ public abstract class FarmerType {
     }
 
     /**
-     * Getter class for variable, costReduction.
+     * Getter for variable, costReduction.
      * @return cost reduction
      */
     public int getCostReduction() {
@@ -64,7 +75,7 @@ public abstract class FarmerType {
 
 
     /**
-     * Getter class for variable, waterIncrease.
+     * Getter for variable, waterIncrease.
      * @return water increase
      */
     public int getWaterIncrease() {
@@ -72,7 +83,7 @@ public abstract class FarmerType {
     }
 
     /**
-     * Getter class for variable, fertilizerIncrease.
+     * Getter for variable, fertilizerIncrease.
      * @return fertilizer increase
      */
     public int getFertilizerIncrease() {
@@ -80,7 +91,7 @@ public abstract class FarmerType {
     }
 
     /**
-     * Getter class for variable, fee.
+     * Getter for variable, fee.
      * @return registration
      */
     public double getFee() {

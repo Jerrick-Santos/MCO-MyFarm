@@ -24,19 +24,20 @@ public abstract class Seed {
 
     /**
      * Constructs a seed class.
-     * Water and Fertilizer are immediately created upon creation of this class.
-     * @param name - name of the seed
-     * @param cropType - type of seed
+     * Water and Fertilizer are immediately created upon creation of this class. Water and Fertilizers are individual
+     * classes which are instantiated when a Seed class is created.
+     * @param name name of the seed
+     * @param cropType type of seed
      * @param harvestDayRequired - days required for harvest
-     * @param waterMin - water lower bound
-     * @param waterMax - water upper bound
-     * @param fertilizerMin - fertilizer lower bound
-     * @param fertilizerMax - fertilizer upper bound
-     * @param seedCost - cost it takes to plant a seed
-     * @param productsProducedMin - products produced lower bound
-     * @param productsProducedMax - products produced upper bound
-     * @param baseSellingPrice - base selling price
-     * @param expYield - EXP yield when seed is harvested
+     * @param waterMin water lower bound
+     * @param waterMax water upper bound
+     * @param fertilizerMin fertilizer lower bound
+     * @param fertilizerMax fertilizer upper bound
+     * @param seedCost cost it takes to plant a seed
+     * @param productsProducedMin products produced lower bound
+     * @param productsProducedMax products produced upper bound
+     * @param baseSellingPrice base selling price
+     * @param expYield EXP yield when seed is harvested
      */
     public Seed(String name, String cropType, int harvestDayRequired, int waterMin, int waterMax, int fertilizerMin, int fertilizerMax,
                 int seedCost, int productsProducedMin, int productsProducedMax, int baseSellingPrice, double expYield, FarmerType farmerType) {
@@ -63,7 +64,7 @@ public abstract class Seed {
 
     /**
      * Computes the final price of the seed
-     * @param farmerType - is used for bonuses in computation
+     * @param farmerType is used for bonuses in computation
      * @return the final price of the seed
      */
     public double computeFinalPrice(FarmerType farmerType){
@@ -106,46 +107,91 @@ public abstract class Seed {
     }
 
     //GETTERS AND SETTERS
+
+    /**
+     * Sets the value of withered
+     * @param withered boolean value to set to withered
+     */
     public void setWithered(boolean withered) {
         this.withered = withered;
     }
 
+    /**
+     * Gets the name of the seed
+     * @return the name of the seed
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets the crop type
+     * @return a crop type
+     */
     public String getCropType() {
         return cropType;
     }
 
+    /**
+     * Gets the harvest day required or date of maturity of a seed
+     * @return harvest day required
+     */
     public int getHarvestDayRequired() {
         return harvestDayRequired;
     }
 
+    /**
+     * Get the days passed of the seed itself
+     * @return days passed of the seed
+     */
     public int getDaysPassed() {
         return daysPassed;
     }
 
+    /**
+     * Gets water attribute
+     * @return Water attribute of seed
+     */
     public Water getWater() {
         return water;
     }
 
+    /**
+     * Gets Fertilizer attribute
+     * @return Fertilizer attribute of a seed
+     */
     public Fertilizer getFertilizer() {
         return fertilizer;
     }
 
+    /**
+     * Gets the seed cost
+     * @return seed cost
+     */
     public int getSeedCost() {
         return seedCost;
     }
 
+    /**
+     * Gets the base selling price
+     * @return base selling price
+     */
     public int getBaseSellingPrice() {
         return baseSellingPrice;
     }
 
+    /**
+     * Gets the Experience Yield
+     * @return Experience Yield
+     */
     public double getExpYield() {
         return expYield;
     }
 
+    /**
+     * Gets the boolean value of withered
+     * @return boolean value of withered
+     */
     public boolean isWithered() {
         return withered;
     }

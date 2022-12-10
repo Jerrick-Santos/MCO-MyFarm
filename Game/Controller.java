@@ -1,3 +1,7 @@
+/**
+ * The controller class is where the logic (model) and GUI (view) elements are used. The class also handles the
+ * different event driven actions (i.e., when a button is clicked).
+ */
 package Game;
 
 import Game.Model.Controller.Player;
@@ -8,6 +12,7 @@ import Game.View.MyFarmGUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ExecutionException;
 
 public class Controller implements ActionListener {
     private Tool PlowTool;
@@ -20,6 +25,9 @@ public class Controller implements ActionListener {
     private int row;
     private int col;
 
+    /**
+     * Controller constructor
+     */
     public Controller() {
         PlowTool = new PlowTool("PlowTool", 0, 0.5);
         WaterCan = new WaterCan("WaterCan", 0, 0.5);
@@ -36,6 +44,10 @@ public class Controller implements ActionListener {
         mainGUI.changeToolButtonColor(0,player.getSelectedTool());
     }
 
+    /**
+     * Checks if the game will restart or terminate based on game conditions on model. The user is given an
+     * option to end the game or to restart by utilizing a JOptionPane and methods from the Player class in model
+     */
     public void farmEnder(){
         if (player.endGame()){
             int select = mainGUI.displayEndGameOption();
@@ -54,6 +66,11 @@ public class Controller implements ActionListener {
         }
     }
 
+    /**
+     * Updates the 2D array of tiles in the Game. Different states of the tile can differ based on tile conditions
+     * such as a tile can have a seed or it can be withered. When certain conditions are met, the state or the visual
+     * representation (GUI) also changes it state to indicate there are indeed changes once an action has been done.
+     */
     public void updateView(){
         mainGUI.setFarmerTypeName(player.getFarmerType().getFarmerTypeName());
         mainGUI.setFarmerLevel(player.getLevel());
@@ -97,6 +114,13 @@ public class Controller implements ActionListener {
 
     }
 
+    /**
+     * Updates the information of a single tile. Different states of the tile can differ based on tile conditions
+     * such as a tile can have a seed or it can be withered. When the state of the tile changes, the GUI elements of
+     * that specific tile also changes.
+     * @param row row index
+     * @param col column index
+     */
     public void updateTileInfo(int row, int col){
         if (player.getLand(row,col).getPlantedSeed() != null){
             mainGUI.setCropM(player.getLand(row,col).getPlantedSeed().getDaysPassed());
@@ -126,39 +150,52 @@ public class Controller implements ActionListener {
         }
     }
 
+    /**
+     * Handles all the actions in the game or specifically when buttons are clicked within the GUI, there will be
+     * also changes in state and form of the GUI (view) as well as the data running in the backend (model).
+     * @param e the event to be processed
+     */
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Watercan")) {
+        if (e.getActionCommand().equals("Watercan")) { //when a water can is used
             mainGUI.changeToolButtonColor(0,player.getSelectedTool());
             player.equipTool(0);
             System.out.println("0");
         }
-        else if (e.getActionCommand().equals("Fertilizer")){
+        else if (e.getActionCommand().equals("Fertilizer")){ //when a fertilizer is used
             mainGUI.changeToolButtonColor(1,player.getSelectedTool());
             player.equipTool(1);
         }
-        else if (e.getActionCommand().equals("Plow Tool")){
+        else if (e.getActionCommand().equals("Plow Tool")){ //when a plow tool is used
             mainGUI.changeToolButtonColor(2,player.getSelectedTool());
             player.equipTool(2);
         }
-        else if (e.getActionCommand().equals("Pickaxe")){
+        else if (e.getActionCommand().equals("Pickaxe")){ //when a pickaxe is used
             mainGUI.changeToolButtonColor(3,player.getSelectedTool());
             player.equipTool(3);
         }
-        else if (e.getActionCommand().equals("Shovel")){
+        else if (e.getActionCommand().equals("Shovel")){ //when a shovel is used
             mainGUI.changeToolButtonColor(4,player.getSelectedTool());
             player.equipTool(4);
         }
-        else if (e.getActionCommand().equals("Plant")){
-            int select = mainGUI.displaySeedOptions();
+        else if (e.getActionCommand().equals("Plant")){ //when the user wants to plant in a tile
 
-            if (!player.plant(select, this.row, this.col)){
-                mainGUI.displayPlantError();
+            try {
+                int select = mainGUI.displaySeedOptions();
+
+                if (!player.plant(select, this.row, this.col)){
+                    mainGUI.displayPlantError();
+                }
+
+                updateView();
+                updateTileInfo(this.row, this.col);
+            }
+            catch (Exception error){
+                System.out.println("No plant was chosen");
             }
 
-            updateView();
-            updateTileInfo(this.row, this.col);
+
         }
-        else if (e.getActionCommand().equals("Harvest")){
+        else if (e.getActionCommand().equals("Harvest")){ //when a user wants to harvest a seed in a tile
 
             if (!player.harvestPlant(this.row, this.col)){
                 mainGUI.displayHarvestError();
@@ -167,12 +204,12 @@ public class Controller implements ActionListener {
             updateView();
             updateTileInfo(this.row, this.col);
         }
-        else if (e.getActionCommand().equals("Next Day")){
+        else if (e.getActionCommand().equals("Next Day")){ //when the user chooses to proceed to the next day
             player.nextDay();
             updateTileInfo(this.row, this.col);
             updateView();
         }
-        else if (e.getActionCommand().equals("Use Tool")){
+        else if (e.getActionCommand().equals("Use Tool")){ //when the user chooses to use the selected tool
 
             if (!player.useEquippedTool(this.row,this.col)){
                 mainGUI.displayToolError();
@@ -181,7 +218,7 @@ public class Controller implements ActionListener {
             updateView();
             updateTileInfo(this.row, this.col);
         }
-        else if (e.getActionCommand().equals("Prestige Up")){
+        else if (e.getActionCommand().equals("Prestige Up")){ //when the user chooses to upgrade the farmer type
             if (player.checkFarmerTypeUpgradeEligibility()){
                 int choice = mainGUI.displayFarmerTypeUpgradeOptions(player.getNextFarmerType().getFarmerTypeName(), player.getNextFarmerType().getFee());
                 System.out.println(choice);
@@ -193,16 +230,16 @@ public class Controller implements ActionListener {
             updateView();
             updateTileInfo(this.row, this.col);
         }
-        else {
+        else { //responds to ever click within the 2D array of tiles (land)
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 5; j++) {
                   String entry = i + "," + j;
                     if (e.getActionCommand().equals(entry)){
                         if (e.getSource() instanceof JButton) {
-                            String text = ((JButton) e.getSource()).getText();
-                            String[] arrStr = text.split(",",2);
-                            this.row = Integer.parseInt(arrStr[0]);
-                            this.col = Integer.parseInt(arrStr[1]);
+                            String text = ((JButton) e.getSource()).getText(); //gets the text 2D index of the array (in String form)
+                            String[] arrStr = text.split(",",2); // 2D index is then transferred to an array of Strings
+                            this.row = Integer.parseInt(arrStr[0]); //gets the row index of the clicked tile (String to int)
+                            this.col = Integer.parseInt(arrStr[1]); //gets the column index of the clicked tile (String to int)
                             mainGUI.setPlantCoordinate(text);
                             updateTileInfo(this.row,this.col);
                         }

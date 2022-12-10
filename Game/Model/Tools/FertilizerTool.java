@@ -1,16 +1,17 @@
+/**
+ * This class adds fertilizer to the seed
+ */
 package Game.Model.Tools;
 
 import Game.Model.Controller.Tile;
 
-/**
- * This class adds fertilizer to the seed
- */
+
 
 public class FertilizerTool extends Tool{
     /**
      * Constructs the Fertilizer class.
-     * @param name - name of the tool
-     * @param cost - cost per use
+     * @param name name of the tool
+     * @param cost cost per use
      * @param expGain - exp gained when tool is used
      */
     public FertilizerTool(String name, int cost, double expGain) {
@@ -19,7 +20,7 @@ public class FertilizerTool extends Tool{
 
     /**
      * adds fertilizer to the seed
-     * @param tile - Takes tile as parameter
+     * @param tile Takes tile as parameter
      * @return true if the tool can be used, false if not
      */
     @Override
