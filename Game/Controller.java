@@ -129,7 +129,7 @@ public class Controller implements ActionListener {
             mainGUI.setMinWR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMin());
             mainGUI.setTimesCW(player.getLand(row,col).getPlantedSeed().getWater().getTimesCropWatered());
             mainGUI.setMaxFR(player.getLand(row,col).getPlantedSeed().getFertilizer().getFertilizerMax());
-            mainGUI.setMaxFR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMax());
+            mainGUI.setMaxWR(player.getLand(row,col).getPlantedSeed().getWater().getWaterMax());
             mainGUI.setMinFR(player.getLand(row,col).getPlantedSeed().getFertilizer().getFertilizerMin());
             mainGUI.setTimesCF(player.getLand(row,col).getPlantedSeed().getFertilizer().getTimesCropFertilized());
             mainGUI.revertTileInfo();
